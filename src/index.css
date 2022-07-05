@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-blue-800;
+}
+
+.btn {
+  @apply p-4 my-2;
+}
+
+.btn-primary {
+  @apply transition ease-in-out delay-150 
+  bg-blue-500 hover:-translate-y-1
+  text-white
+  hover:bg-indigo-500 
+  hover:rounded
+  hover:scale-100 
+  duration-300;
+}
