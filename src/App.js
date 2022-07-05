@@ -24,7 +24,6 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="layout" element={<Layout />} />
         </Routes>
       </AuthContextProvider>
     </>

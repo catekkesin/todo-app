@@ -7,15 +7,16 @@ body {
 }
 
 .btn {
-  @apply p-4 my-2;
+  @apply p-4 my-2
+  hover:-translate-y-1
+  hover:rounded
+  hover:scale-100
+  transition ease-in-out delay-150  
+  duration-300;
 }
 
 .btn-primary {
-  @apply transition ease-in-out delay-150 
-  bg-blue-500 hover:-translate-y-1
+  @apply bg-blue-500 
   text-white
-  hover:bg-indigo-500 
-  hover:rounded
-  hover:scale-100 
-  duration-300;
+  hover:bg-indigo-500;
 }
