@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 
 const navItems = ["Home", "About"];
@@ -30,24 +30,25 @@ function Desktop(props, { children }) {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <AppBar component="nav">
+      <AppBar style={{ background: "#2E3B55" }} component="nav">
         <Toolbar>
           <Typography
             variant="h6"
             component="div"
+            className="btn"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            MUI
+            Arda's To Do
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#fff" }}>
-                {item}
-              </Button>
-            ))}
-
+            <Link to="/home">
+              <button className="btn">Home</button>
+            </Link>
+            <Link to="/oldies">
+              <button className="btn">Oldies</button>
+            </Link>
             <button
-              className="btn "
+              className="btn"
               onClick={handleLogout}
               sx={{ color: "#fff" }}
             >
@@ -56,7 +57,7 @@ function Desktop(props, { children }) {
           </Box>
         </Toolbar>
       </AppBar>
-      <div className="max-w-[700px] mx-auto my-16 p-4 ">{props.children}</div>
+      <div className=" w-3/6 mx-auto my-16 p-4 ">{props.children}</div>
     </Box>
   );
 }

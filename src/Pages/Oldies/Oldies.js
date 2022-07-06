@@ -11,7 +11,7 @@ import {
   where,
 } from "firebase/firestore";
 
-const Home = () => {
+const Oldies = () => {
   const { user } = UserAuth();
   // const navigate = useNavigate();
   const [todo, setTodo] = React.useState("");
@@ -22,7 +22,7 @@ const Home = () => {
     const q = query(
       collection(db, "todo"),
       where("uid", "==", user.uid),
-      where("active", "==", true)
+      where("active", "==", false)
     );
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
@@ -35,43 +35,8 @@ const Home = () => {
     updateTodoList();
   }, []);
 
-  const handleTodo = async (e) => {
-    if (todo !== "") {
-      try {
-        const docRef = await addDoc(collection(db, "todo"), {
-          message: todo,
-          created: serverTimestamp(),
-          uid: user.uid,
-          active: true,
-        });
-
-        setTodo("");
-
-        console.log("Document written with ID: ", docRef.id);
-      } catch (e) {
-        console.error("Error adding document: ", e);
-      }
-    }
-
-    updateTodoList();
-
-    console.log(user);
-  };
-
   return (
     <>
-      <div className="card">
-        <input
-          onChange={(e) => {
-            setTodo(e.target.value);
-          }}
-          type="text"
-          className="form-control w-4/6 m-2"
-        />
-        <button onClick={handleTodo} className="btn btn-primary w-1/6 m-2 ">
-          Add
-        </button>
-      </div>
       {list.map((el) => {
         return (
           <ToDo
@@ -86,4 +51,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Oldies;

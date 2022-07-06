@@ -6,10 +6,27 @@ body {
   @apply bg-blue-800;
 }
 
+.form-control {
+  @apply border p-2 
+  focus:ring-offset-2
+  hover:bg-indigo-500
+  hover:text-white;
+}
+
+.card {
+  @apply bg-blue-100 
+  flex
+  justify-between
+  p-4
+  my-2
+  rounded;
+}
+.todo-card {
+}
+
 .btn {
-  @apply p-4 my-2
+  @apply p-2
   hover:-translate-y-1
-  hover:rounded
   hover:scale-100
   transition ease-in-out delay-150  
   duration-300;
@@ -18,5 +35,8 @@ body {
 .btn-primary {
   @apply bg-blue-500 
   text-white
-  hover:bg-indigo-500;
+  hover:bg-green-500
+  focus:outline-none 
+  focus:ring
+  focus:ring-blue-300;
 }
